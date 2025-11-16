@@ -1,0 +1,13 @@
+#siteLogo {
+  position: relative; /* ou absolute pour plus de liberté */
+  top: 0;  /* ajuster verticalement */
+  left: 0; /* ajuster horizontalement */
+  transition: all 0.3s ease;
+}
+
+/* Exemple pour déplacer légèrement au hover */
+#siteLogo:hover {
+  top: -5px;
+  left: 5px;
+  transform: rotate(-2deg);
+}

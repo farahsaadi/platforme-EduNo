@@ -1,0 +1,54 @@
+<div class="container d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card shadow-lg rounded-4 p-4 p-md-5" style="max-width: 420px; width: 100%;">
+    <h2 class="text-center mb-4 text-primary fw-bold">Connexion</h2>
+
+    <form (ngSubmit)="onSubmit()">
+
+      <!-- Email -->
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="emailInput"
+          placeholder="Email"
+          [(ngModel)]="credentials.email"
+          name="email"
+          required
+          autofocus
+        >
+        <label for="emailInput">Email</label>
+      </div>
+
+      <!-- Mot de passe -->
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          class="form-control"
+          id="passwordInput"
+          placeholder="Mot de passe"
+          [(ngModel)]="credentials.mot_de_passe"
+          name="password"
+          required
+        >
+        <label for="passwordInput">Mot de passe</label>
+      </div>
+
+      <!-- Bouton Se connecter -->
+      <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold mb-3">
+        Se connecter
+      </button>
+      <p class="text-center text-muted">
+  Pas encore de compte ? 
+  <a routerLink="/register" class="text-decoration-none fw-bold">S'inscrire</a>
+</p>
+      <!-- Séparateur style OR -->
+      <div class="d-flex align-items-center my-3">
+        <hr class="flex-grow-1">
+        <span class="mx-2 text-muted fw-bold">OU</span>
+        <hr class="flex-grow-1">
+      </div>
+
+      <!-- Boutons sociaux -->
+      <div class="d-grid gap-2">
+        <button type="button" class="btn btn-primary btn-lg w-100" style="background-color:#3b5998;">
+          <i class="fab fa-facebook-f me-2"></i>Continuer avec Facebook

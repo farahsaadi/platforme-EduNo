@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-4">
+
+          <h3 class="text-center mb-4 fw-bold">Ajouter une publication</h3>
+
+          <div *ngIf="authService.currentUser; else notLogged">
+
+            <form (ngSubmit)="onSubmit()">
+
+              <!-- Titre -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Titre</label>
+                <input type="text" class="form-control rounded-3" placeholder="Ex: iPhone 12 Pro Max"
+                       [(ngModel)]="produit.titre" name="titre" required>
+              </div>
+
+              <!-- Description -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Description</label>
+                <textarea class="form-control rounded-3" rows="4"
+                          placeholder="Ajoutez une description détaillée..."
+                          [(ngModel)]="produit.description" name="description"></textarea>
+              </div>
+
+              <!-- Catégorie -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Catégorie</label>
+                <input type="text" class="form-control rounded-3"
+                       placeholder="Ex: Téléphones, Vêtements, Accessoires..."
+                       [(ngModel)]="produit.categorie" name="categorie">
+              </div>
+
+              <!-- Prix -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Prix (si vente)</label>
+                <input type="number" class="form-control rounded-3"
+                       placeholder="Ex: 1200 DT"
+                       [(ngModel)]="produit.prix" name="prix">
+              </div>
+
+              <!-- Type annonce -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Type d’annonce</label>
+                <select class="form-select rounded-3"
+                        [(ngModel)]="produit.type_annonce" name="type_annonce">
+                  <option value="vente">Vente</option>
+                  <option value="echange">Échange</option>
+                  <option value="don">Don gratuit</option>
+                </select>
+              </div>
+
+              <!-- Localisation -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold">Localisation</label>
+                <input type="text" class="form-control rounded-3"
+                       placeholder="Ex: Tunis, Nabeul, Sousse..."
+                       [(ngModel)]="produit.localisation" name="localisation">
+              </div>
+
+              <!-- Bouton -->
+              <button class="btn btn-primary w-100 py-2 fw-semibold rounded-3">
+                Publier ma demande
+              </button>
+
+            </form>
+
+          </div>
+
+          <ng-template #notLogged>
+            <p class="text-danger text-center mt-3">
+              Vous devez être connecté pour publier un produit.
+            </p>
+          </ng-template>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

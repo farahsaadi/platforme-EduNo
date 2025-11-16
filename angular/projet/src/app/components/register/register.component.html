@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card shadow rounded-4 p-4 p-md-5" style="max-width: 450px; width: 100%;">
+    <h2 class="text-center mb-4 text-success fw-bold">Créer un compte</h2>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3 position-relative">
+        <i class="bi bi-person-fill position-absolute top-50 translate-middle-y ms-2 text-secondary"></i>
+        <input type="text" class="form-control ps-5" [(ngModel)]="user.nom" name="nom" placeholder="Nom" required>
+      </div>
+
+      <div class="mb-3 position-relative">
+        <i class="bi bi-envelope-fill position-absolute top-50 translate-middle-y ms-2 text-secondary"></i>
+        <input type="email" class="form-control ps-5" [(ngModel)]="user.email" name="email" placeholder="Email" required>
+      </div>
+
+      <div class="mb-3 position-relative">
+        <i class="bi bi-lock-fill position-absolute top-50 translate-middle-y ms-2 text-secondary"></i>
+        <input type="password" class="form-control ps-5" [(ngModel)]="user.mot_de_passe" name="mot_de_passe" placeholder="Mot de passe" required>
+      </div>
+
+      <div class="mb-3 position-relative">
+        <i class="bi bi-telephone-fill position-absolute top-50 translate-middle-y ms-2 text-secondary"></i>
+        <input type="text" class="form-control ps-5" [(ngModel)]="user.telephone" name="telephone" placeholder="Téléphone">
+      </div>
+
+      <div class="mb-3 position-relative">
+        <i class="bi bi-geo-alt-fill position-absolute top-50 translate-middle-y ms-2 text-secondary"></i>
+        <input type="text" class="form-control ps-5" [(ngModel)]="user.adresse" name="adresse" placeholder="Adresse">
+      </div>
+
+      <button type="submit" class="btn btn-success w-100 fw-bold">S'inscrire</button>
+    </form>
+
+    <p class="text-center mt-3 text-muted">
+      Déjà un compte ? <a routerLink="/login" class="text-decoration-none fw-bold">Se connecter</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+
+<div class="container mt-5">
+  <h2 class="mb-4 fw-bold text-center">Liste des Produits</h2>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let p of produits">
+      <div class="card shadow-sm h-100 hover-effect">
+        <img [src]="p.url_image || 'assets/img/logo.png'" 
+             class="card-img-top" 
+             style="height:200px; object-fit:cover; border-radius:5px;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title fw-semibold">{{ p.titre }}</h5>
+          <p class="text-muted small">{{ p.description }}</p>
+          <p class="fw-bold">{{ p.prix ? p.prix + ' DT' : 'Gratuit' }}</p>
+          <span class="badge" 
+                [ngClass]="{
+                  'bg-success': p.type_annonce === 'vente',
+                  'bg-primary': p.type_annonce === 'echange',
+                  'bg-warning text-dark': p.type_annonce === 'don'
+                }">
+            {{ p.type_annonce | titlecase }}
+          </span>
+          <div class="mt-auto d-flex gap-2">
+            <button class="btn btn-danger w-100 mt-2" (click)="supprimer(p.id)">
+              <i class="bi bi-trash"></i> Supprimer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="produits.length === 0" class="text-center mt-5 text-muted">
+    Aucun produit trouvé.
+  </div>
+</div>

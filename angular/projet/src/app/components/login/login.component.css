@@ -1,0 +1,26 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  transition: all 0.3s ease;
+  border-radius: 1rem;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+.btn-info {
+  background-color: #55acee;
+  border: none;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13,110,253,.25);
+}

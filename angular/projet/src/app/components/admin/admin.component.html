@@ -1,0 +1,46 @@
+<!-- users.component.html -->
+<div class="container mt-3">
+  <h3 class="text-primary mb-3 fw-bold text-center">Gestion des utilisateurs</h3>
+
+  <div class="table-responsive shadow-sm rounded" style="max-height: 70vh; overflow-y: auto;">
+    <table class="table table-sm table-striped table-hover align-middle text-center">
+      <thead class="table-dark small">
+        <tr>
+          <th>#</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Type</th>
+          <th>Rôle</th>
+          <th>Tél</th>
+          <th>Adresse</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let u of users">
+          <td class="fw-semibold">{{ u.id }}</td>
+          <td>{{ u.nom }}</td>
+          <td>{{ u.email }}</td>
+          <td>{{ u.type_user }}</td>
+          <td>{{ u.role }}</td>
+          <td>{{ u.telephone || '-' }}</td>
+          <td>{{ u.adresse || '-' }}</td>
+          <td>{{ u.date_creation | date:'short' }}</td>
+
+          <!-- ACTIONS -->
+          <td>
+            <button
+              class="btn btn-outline-danger btn-sm p-1 px-2"
+              style="font-size: 12px;"
+              (click)="deleteUser(u.id)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>

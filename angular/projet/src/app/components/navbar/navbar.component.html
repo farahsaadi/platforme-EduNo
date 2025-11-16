@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 sticky-top">
+  <div class="container">
+
+    <!-- LOGO -->
+    <a class="navbar-brand fw-bold fs-3 text-primary" routerLink="/">
+      <i class="bi bi-shop me-1"></i> EduNo
+    </a>
+
+    <!-- Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Nav links -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+
+      <ul class="navbar-nav mx-auto gap-2">
+        <li class="nav-item">
+          <a class="nav-link fw-semibold" routerLink="/acceuil">Accueil</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link fw-semibold" routerLink="/liste">Produits</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link fw-semibold" routerLink="/user-public">Mes publications</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link fw-semibold" routerLink="/add">Déposer une annonce</a>
+        </li>
+
+        
+      </ul>
+
+      <!-- COMPTE UTILISATEUR -->
+      <div class="d-flex align-items-center">
+
+        <!-- Si connecté -->
+        <ng-container *ngIf="authService.isLoggedIn(); else notLogged">
+          
+          <!-- Nom -->
+          <div class="me-3 d-none d-lg-block text-end">
+            <span class="fw-bold">{{ authService.currentUser.nom }}</span><br>
+            <small class="text-muted">{{ authService.currentUser.email }}</small>
+          </div>
+
+          <!-- Avatar -->
+          <img 
+            [src]="'assets/avatar.jpg'"
+            class="rounded-circle border shadow-sm me-2"
+            style="width:48px; height:48px; object-fit:cover;"
+            alt="avatar">
+
+          <!-- Menu Profil -->
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+              <i class="bi bi-person-circle me-1"></i> Profil
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+              <li><a class="dropdown-item" routerLink="/profil"><i class="bi bi-person-lines-fill me-2"></i>Mon profil</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item text-danger" href="#" (click)="logout()">
+                  <i class="bi bi-box-arrow-right me-2"></i>Déconnexion
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </ng-container>
+
+        <!-- Si NON connecté -->
+        <ng-template #notLogged>
+          <a routerLink="/login" class="btn btn-outline-primary me-2">Connexion</a>
+          <a routerLink="/register" class="btn btn-primary">Créer un compte</a>
+        </ng-template>
+
+      </div>
+    </div>
+  </div>
+</nav>

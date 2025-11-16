@@ -1,0 +1,47 @@
+<table class="table table-hover align-middle">
+  <thead class="table-light">
+    <tr>
+      <th>Titre</th>
+      <th>Type d'annonce</th>
+      <th>Prix</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of publications" class="align-middle">
+      <td>{{ p.titre }}</td>
+      <td>
+        <span class="badge" 
+              [ngClass]="{
+                'bg-success': p.type_annonce === 'vente',
+                'bg-primary': p.type_annonce === 'echange',
+                'bg-warning text-dark': p.type_annonce === 'don'
+              }">
+          {{ p.type_annonce | titlecase }}
+        </span>
+      </td>
+      <td>{{ p.prix ? p.prix + ' DT' : '-' }}</td>
+      <td class="text-center">
+        <button class="btn btn-sm btn-success me-2" (click)="accept(p.id)">
+          <i class="bi bi-check-lg"></i> Accepter
+        </button>
+        <button class="btn btn-sm btn-danger" (click)="reject(p.id)">
+          <i class="bi bi-trash"></i> Supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+  cursor: pointer;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.4em 0.75em;
+  text-transform: capitalize;
+}
+</style>

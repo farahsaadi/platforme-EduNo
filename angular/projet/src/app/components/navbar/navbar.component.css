@@ -1,0 +1,21 @@
+.nav-link {
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.nav-link:hover {
+  color: #0d6efd;
+  transform: translateY(-1px);
+}
+
+.navbar-brand {
+  letter-spacing: 0.5px;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
